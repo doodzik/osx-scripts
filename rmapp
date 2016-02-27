@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+_apps() {
+  ( ls -1 ~/Applications; ls -1 /Applications ) | grep "\.app" | sed 's/\.[^.]*$//'
+}
+
+rmapp() {
+  APP=$1
+  _apps | grep $APP
+
+  if [ $? -eq 0 ]; then
+    sudo rm -rif `mdfind -name $APP`
+  else
+    echo "$1 isn't a programm"
+  fi
+}
+
+complete -F _apps rmapp
