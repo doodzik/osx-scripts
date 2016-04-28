@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+( ls -1 ~/Applications; ls -1 /Applications ) | grep "\.app" | sed 's/\.[^.]*$//'
+

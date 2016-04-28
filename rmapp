@@ -1,18 +1,10 @@
 #!/usr/bin/env bash
 
-_apps() {
-  ( ls -1 ~/Applications; ls -1 /Applications ) | grep "\.app" | sed 's/\.[^.]*$//'
-}
+APP=$1
+_apps | grep $APP >/dev/null 2>/dev/null
 
-rmapp() {
-  APP=$1
-  _apps | grep $APP >/dev/null 2>/dev/null
-
-  if [ $? -eq 0 ]; then
-    rm -rif `find . | grep $APP`
-  else
-    echo "$1 isn't a programm"
-  fi
-}
-
-complete -F _apps rmapp
+if [ $? -eq 0 ]; then
+  rm -rif `find . | grep $APP`
+else
+  echo "$1 isn't a programm"
+fi

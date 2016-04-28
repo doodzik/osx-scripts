@@ -7,14 +7,16 @@ Removes an app completely from your osx system
 ```
 $ brew tap doodzik/tap https://github.com/doodzik/tap
 $ brew instal rmapp
-# add this to your .bashrc file
-source rmapp
+```
 
-# if you are using zsh install 
-$ brew instal bash-completion
-# or add this to your zshrc before running source
-$ autoload bashcompinit
-$ bashcompinit
+## add the autocompletion feature
+```bash
+# add this if you use zshrc
+autoload bashcompinit
+bashcompinit
+
+# add this to your bashrc get autocomplete
+complete -F rmapp_app_list rmapp
 ```
 
 # usage
