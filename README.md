@@ -16,7 +16,7 @@ autoload bashcompinit
 bashcompinit
 
 # add this to your bashrc get autocomplete
-complete -F rmapp_app_list rmapp
+complete -F _rmapp_app_list rmapp
 ```
 
 # usage
